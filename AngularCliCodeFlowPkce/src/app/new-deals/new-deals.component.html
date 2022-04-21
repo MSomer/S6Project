@@ -1,0 +1,38 @@
+<div class="col-md-12" *ngIf="isAuthenticated$ | async" >
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Rating</th>
+          <th>Product name</th>
+          <th>Old price</th>
+          <th>New price</th>
+          <th>Productlink</th>
+          <th>Timestamp</th>
+          <th></th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr style="height:20px;" *ngFor="let newDeal of NewDeals" >
+          <td>
+            <a href="" [routerLink]="['/details/' + newDeal.id]" >{{newDeal.name}}</a>
+          </td>
+          <td>{{newDeal.description}}</td>
+          <td>{{newDeal.rating}}</td>
+          <td>{{newDeal.productName}}</td>
+          <td>{{newDeal.oldPrice}}</td>
+          <td>{{newDeal.newPrice}}</td>
+          <td>{{newDeal.productLink}}</td>
+          <td>{{newDeal.timestamp}}</td>
+        </tr>
+        </tbody>
+<button (click)="getconsole()"></button>
+      </table>
+
+    </div>
+  </div>
+</div>

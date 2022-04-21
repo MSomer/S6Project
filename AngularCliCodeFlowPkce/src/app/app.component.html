@@ -7,8 +7,9 @@
             </div>
             <div class="navbar-collapse collapse" id="navbar">
                 <ul class="mr-auto navbar-nav">
-                    <li class="nav-item"><a class="nav-link" *ngIf="isAuthenticated" [routerLink]="['/dataeventrecords']">DataEventRecords</a></li>
-                    <li class="nav-item"><a class="nav-link" *ngIf="isAuthenticated" [routerLink]="['/dataeventrecords/create']">Create DataEventRecord</a></li>
+                    <li class="nav-item"><a class="nav-link" *ngIf="isAuthenticated" [routerLink]="['/New']">New deals</a></li>
+                    <li class="nav-item"><a class="nav-link" *ngIf="isAuthenticated" [routerLink]="['/Hot']">Hot deals</a></li>
+                    <li class="nav-item"><a class="nav-link" *ngIf="isAuthenticated" [routerLink]="['/create']">Create Deal</a></li>
 
                     <li class="nav-item"><a class="nav-link" *ngIf="!isAuthenticated" (click)="login()">LOGIN</a></li>
                     <li class="nav-item"><a class="nav-link" *ngIf="isAuthenticated" (click)="logoffAndRevokeTokens()">LOGOUT</a></li>

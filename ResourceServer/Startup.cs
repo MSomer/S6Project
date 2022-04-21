@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using Microsoft.OpenApi.Models;
 using OpenIddict.Validation.AspNetCore;
+using ResourceServer.Repositories.Dapper;
+using ResourceServer.Repositories.Interfaces;
 
 namespace ResourceServer;
 
@@ -22,11 +24,11 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        var connection = Configuration.GetConnectionString("DefaultConnection");
+//        var connection = Configuration.GetConnectionString("DefaultConnection");
 
-        services.AddDbContext<DataEventRecordContext>(options =>
-            options.UseSqlite(connection)
-        );
+//        services.AddDbContext<DataEventRecordContext>(options =>
+//            options.UseSqlite(connection)
+//        );
 
         services.AddCors(options =>
         {
@@ -122,11 +124,15 @@ public class Startup
             });
         });
 
+        //Dapper toevoegen
+        services.AddSingleton<DapperContext>();
 
         services.AddControllers()
             .AddNewtonsoftJson();
 
-        services.AddScoped<DataEventRecordRepository>();
+        //HIER DEPENDECIES
+        services.AddScoped<IDealRepository, DealRepository>();
+        services.AddScoped<IDealContext, DealContextDapper>();
     }
 
     public void Configure(IApplicationBuilder app)

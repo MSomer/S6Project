@@ -9,6 +9,12 @@ import { ForbiddenComponent } from './forbidden/forbidden.component';
 import { HomeComponent } from './home/home.component';
 import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 import { AuthModule, OidcConfigService, LogLevel } from 'angular-auth-oidc-client';
+import { NewDealsComponent } from './new-deals/new-deals.component';
+import { HotDealsComponent } from './hot-deals/hot-deals.component';
+import { CreateDealComponent } from './create-deal/create-deal.component';
+import { EditDealComponent } from './edit-deal/edit-deal.component';
+import { DetailsDealComponent } from './details-deal/details-deal.component';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -32,12 +38,18 @@ import { AuthModule, OidcConfigService, LogLevel } from 'angular-auth-oidc-clien
             logLevel: LogLevel.Debug,
         },
       }),
+      AppRoutingModule,
   ],
   declarations: [
       AppComponent,
       ForbiddenComponent,
       HomeComponent,
-      UnauthorizedComponent
+      UnauthorizedComponent,
+      NewDealsComponent,
+      HotDealsComponent,
+      CreateDealComponent,
+      EditDealComponent,
+      DetailsDealComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
